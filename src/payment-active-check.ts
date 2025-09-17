@@ -5,7 +5,7 @@ import type {
   onRequestHookHandler,
 } from "fastify";
 import fp from "fastify-plugin";
-import Stripe from 'stripe'
+import { Stripe } from 'stripe'
 
 export default fp(
   async (fastify) => {
