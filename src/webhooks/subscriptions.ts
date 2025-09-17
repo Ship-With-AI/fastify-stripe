@@ -2,7 +2,11 @@ import type { FastifyReply, FastifyRequest } from "fastify";
 import type { Stripe } from "stripe";
 import fastifyPlugin from "fastify-plugin";
 
-export default fastifyPlugin<{ stripeEndpointSecret: string }>(async function (fastify, opts) {
+export interface StripeWebhooksSubscriptionsOptions {
+  stripeEndpointSecret: string
+}
+
+export default fastifyPlugin<StripeWebhooksSubscriptionsOptions>(async function (fastify, opts) {
   fastify.addContentTypeParser(
     "application/json",
     { parseAs: "string" },
